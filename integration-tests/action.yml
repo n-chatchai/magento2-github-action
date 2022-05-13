@@ -1,0 +1,12 @@
+name: 'Magento 2 integration tests'
+description: 'Runs Integration Tests for given Magento 2 open source version'
+inputs:
+  php_unit_file:
+    description: 'Define PHP Unit testsuite'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+

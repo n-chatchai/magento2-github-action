@@ -1,0 +1,16 @@
+name: 'Magento 2 Mess Detector'
+description: 'Performs PHP Static Code Analysis with the Magento 2 Mess Detector ruleset'
+inputs:
+  app_code_path:
+    description: 'Path to do code analysis'
+    required: true
+  report_format:
+    description: 'Available formats: ansi, baseline, checkstyle, github, html, json, sarif, text, xml'
+    required: true
+  ruleset:
+    description: 'Available rulesets: cleancode, codesize, controversial, design, naming, unusedcode.'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+

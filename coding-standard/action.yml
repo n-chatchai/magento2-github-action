@@ -1,0 +1,18 @@
+name: 'Magento 2 Coding Style'
+description: 'Performs PHP static code analysis with the Magento 2 Coding Standard'
+inputs:
+  app_code_path:
+    description: 'Path to do static code analysis'
+    required: true
+  phpcs_standard:
+    description: 'Path to your own PHPCS file or a specific standard. Default: "Magento2"'
+    required: false
+  phpcs_report:
+    description: 'Report to output. Default: "checkstyle"'
+    required: false
+  phpcs_severity:
+    description: 'Which severity to check for. Default: "8"'
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
