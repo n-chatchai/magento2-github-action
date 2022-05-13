@@ -43,7 +43,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: n-chatchai/setup-magento2-github-action/phpstan@main
+      - uses: n-chatchai/magento2-github-action/phpstan@main
         with:
           app_code_path: app/code/XyzCom
           phpstan_configuration_file: dev/tests/static/testsuite/Magento/Test/Php/_files/phpstan/phpstan.neon
@@ -102,7 +102,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
     - name: Unit Test
-      uses: n-chatchai/setup-magento2-github-action/unit-tests@main
+      uses: n-chatchai/magento2-github-action/unit-tests@main
       env:
         MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
         MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}
