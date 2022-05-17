@@ -46,7 +46,7 @@ jobs:
       - uses: n-chatchai/magento2-github-action/phpstan@main
         with:
           app_code_path: app/code/XyzCom
-          phpstan_configuration_file: dev/tests/static/testsuite/Magento/Test/Php/_files/phpstan/phpstan.neon
+          phpstan_config_file: dev/tests/static/testsuite/Magento/Test/Php/_files/phpstan/phpstan.neon
           phpstan_level: 1
         env:
           MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
@@ -103,10 +103,11 @@ jobs:
       uses: actions/checkout@v3
     - name: Unit Test
       uses: n-chatchai/magento2-github-action/unit-tests@main
+      with:
+        phpunit_config_file: dev/tests/unit/phpunit.xml
       env:
         MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
         MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}
-        PHP_UNIT_CONFIG_FILE: dev/tests/unit/phpunit.xml
 ```
 
 # [Intgeration Test](intgeratoi-tests/)
@@ -153,7 +154,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: n-chatchai/magento2-github-action/integration-tests@main
         with:
-          php_unit_file: dev/tests/integration/phpunit.xml
+          phpunit_config_file: dev/tests/integration/phpunit.xml
         env:
           MAGENTO_MARKETPLACE_USERNAME: ${{ secrets.MAGENTO_MARKETPLACE_USERNAME }}
           MAGENTO_MARKETPLACE_PASSWORD: ${{ secrets.MAGENTO_MARKETPLACE_PASSWORD }}

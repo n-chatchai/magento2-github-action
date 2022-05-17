@@ -8,7 +8,7 @@ echo "Composer Install:"
 COMPOSER_MEMORY_LIMIT=-1 composer install --no-interaction --no-progress
 
 echo "APP Code Path: $INPUT_APP_CODE_PATH"
-echo "Configuration file: $INPUT_PHPSTAN_CONFIGURATION_FILE"
+echo "Configuration file: $INPUT_PHPSTAN_CONFIG_FILE"
 echo "Level: $INPUT_PHPSTAN_LEVEL"
 
 echo "Running PHPStan:"
@@ -18,6 +18,6 @@ vendor/bin/phpstan analyse \
     --level $INPUT_PHPSTAN_LEVEL \
     --no-progress \
     --memory-limit=4G \
-    --configuration ${INPUT_PHPSTAN_CONFIGURATION_FILE} \
+    --configuration ${INPUT_PHPSTAN_CONFIG_FILE} \
     ${GITHUB_WORKSPACE}/${INPUT_APP_CODE_PATH}
 

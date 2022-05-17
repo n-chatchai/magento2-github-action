@@ -1,9 +1,17 @@
 name: 'Magento 2 integration tests'
 description: 'Runs Integration Tests for given Magento 2 open source version'
 inputs:
-  php_unit_file:
+  phpunit_config_file:
     description: 'Define PHP Unit testsuite'
     required: true
+  currency:
+    description: 'Currency to use for Magento setup'
+    required: false
+    default: 'USD'
+  currency:
+    description: 'Timezone to use for Magento setup'
+    required: false
+    default: 'Asia/Bangkok'
 
 runs:
   using: 'docker'

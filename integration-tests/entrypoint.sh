@@ -27,14 +27,14 @@ SETUP_ARGS="--base-url=http://magento2.test/ \
 --admin-email=johndoe@example.com \
 --admin-user=johndoe --admin-password=johndoe!1234 \
 --backend-frontname=admin --language=en_US \
---currency=THB --timezone=Asia/Bangkok \
+--currency=$INPUT_CURRENCY --timezone=$INPUT_TIMEZONE \
 --elasticsearch-host=es --elasticsearch-port=9200 --elasticsearch-enable-auth=0 \
 --sales-order-increment-prefix=ORD_ --session-save=db \
 --use-rewrites=1"
 
 php bin/magento setup:install $SETUP_ARGS
 
-echo "Using PHPUnit file: $GITHUB_WORKSPACE/$INPUT_PHP_UNIT_FILE"
+echo "Using PHPUnit file: $GITHUB_WORKSPACE/$INPUT_PHPUNIT_CONFIG_FILE"
 
 echo "Prepare for integration tests:"
 
@@ -44,5 +44,5 @@ php -r "echo ini_get('memory_limit').PHP_EOL;"
 
 echo "Run the integration tests:"
 
-cd $GITHUB_WORKSPACE/dev/tests/integration && ../../../vendor/bin/phpunit -c $GITHUB_WORKSPACE/$INPUT_PHP_UNIT_FILE
+cd $GITHUB_WORKSPACE/dev/tests/integration && ../../../vendor/bin/phpunit -c $GITHUB_WORKSPACE/$INPUT_PHPUNIT_CONFIG_FILE
 

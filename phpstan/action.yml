@@ -4,7 +4,7 @@ inputs:
   app_code_path:
     description: 'Path to do code analysis'
     required: true
-  phpstan_configuration_file: 
+  phpstan_config_file: 
     description: 'Path to PHPStand configuration file'
     default: 'dev/tests/static/testsuite/Magento/Test/Php/_files/phpstan/phpstan.neon'
     required: false

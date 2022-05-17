@@ -1,6 +1,10 @@
 # action.yml
 name: 'PHP Setup for Magento2'
 description: 'PHP and extensions setup and configure for Magento2'
+inputs:
+  phpunit_config_file:
+    description: 'Define PHPUnit testsuite'
+    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
