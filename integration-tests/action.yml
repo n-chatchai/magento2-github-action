@@ -8,7 +8,7 @@ inputs:
     description: 'Currency to use for Magento setup'
     required: false
     default: 'USD'
-  currency:
+  timezone:
     description: 'Timezone to use for Magento setup'
     required: false
     default: 'Asia/Bangkok'
