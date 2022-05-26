@@ -1,6 +1,7 @@
 #!/bin/bash
 
 composer global config http-basic.repo.magento.com $MAGENTO_MARKETPLACE_USERNAME $MAGENTO_MARKETPLACE_PASSWORD
+composer global config github-oauth.github.com $GITHUB_OAUTH_TOKEN
 
 cd $GITHUB_WORKSPACE
 

@@ -13,6 +13,7 @@ mysql --host mysql --port 3306 -uroot -proot -e "SHOW DATABASES;" || exit
 
 echo "Setup Magento Composer Credentials:"
 test -z "${MAGENTO_MARKETPLACE_USERNAME}" || composer global config http-basic.repo.magento.com $MAGENTO_MARKETPLACE_USERNAME $MAGENTO_MARKETPLACE_PASSWORD
+test -z "${GITHUB_OAUTH_TOKEN}" || composer global config github-oauth.github.com $GITHUB_OAUTH_TOKEN
 
 cd $GITHUB_WORKSPACE
 
