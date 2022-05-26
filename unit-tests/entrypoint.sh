@@ -7,4 +7,5 @@ cd $GITHUB_WORKSPACE
 
 COMPOSER_MEMORY_LIMIT=-1 composer install --no-interaction --no-progress
 
+
 ./vendor/bin/phpunit -c $INPUT_PHPUNIT_CONFIG_FILE
