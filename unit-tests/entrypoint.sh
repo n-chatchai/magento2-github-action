@@ -7,4 +7,6 @@ cd $GITHUB_WORKSPACE
 
 COMPOSER_MEMORY_LIMIT=-1 composer install --no-interaction --no-progress
 
+php bin/magento setup:di:compile
+
 ./vendor/bin/phpunit -c $INPUT_PHPUNIT_CONFIG_FILE
