@@ -13,5 +13,10 @@ test -z "${GITHUB_OAUTH_TOKEN}" || composer global config github-oauth.github.co
 echo "Composer Install:"
 COMPOSER_MEMORY_LIMIT=-1 composer install --no-interaction --no-progress
 
+echo "App Code Path: ${GITHUB_WORKSPACE}/${INPUT_APP_CODE_PATH}"
+
+echo "App Code Content: ${GITHUB_WORKSPACE}/${INPUT_APP_CODE_PATH}"
+ls -al $GITHUB_WORKSPACE/$INPUT_APP_CODE_PATH
+
 sh -c "${GITHUB_WORKSPACE}/vendor/phpmd/phpmd/src/bin/phpmd \
     $INPUT_APP_CODE_PATH $INPUT_REPORT_FORMAT $INPUT_RULESET"

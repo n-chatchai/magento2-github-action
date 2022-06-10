@@ -12,6 +12,11 @@ echo "APP Code Path: $INPUT_APP_CODE_PATH"
 echo "Configuration file: $INPUT_PHPSTAN_CONFIG_FILE"
 echo "Level: $INPUT_PHPSTAN_LEVEL"
 
+
+echo "App Code Path: ${GITHUB_WORKSPACE}/${INPUT_APP_CODE_PATH}"
+echo "App Code Content: ${GITHUB_WORKSPACE}/${INPUT_APP_CODE_PATH}"
+ls -al $GITHUB_WORKSPACE/$INPUT_APP_CODE_PATH
+
 echo "Running PHPStan:"
 cd ${GITHUB_WORKSPACE}
 

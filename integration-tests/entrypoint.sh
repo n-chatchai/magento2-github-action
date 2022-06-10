@@ -8,9 +8,6 @@ nc -z -w1 mysql 3306 || (echo "MySQL is not running" && exit)
 echo "MySQL Create Test Databases:"
 mysql --host mysql --port 3306 -uroot -proot -e "CREATE DATABASE IF NOT EXISTS magento_integration_tests;" || exit
 
-echo "MySQL Databases:"
-mysql --host mysql --port 3306 -uroot -proot -e "SHOW DATABASES;" || exit
-
 echo "Setup Magento Composer Credentials:"
 test -z "${MAGENTO_MARKETPLACE_USERNAME}" || composer global config http-basic.repo.magento.com $MAGENTO_MARKETPLACE_USERNAME $MAGENTO_MARKETPLACE_PASSWORD
 test -z "${GITHUB_OAUTH_TOKEN}" || composer global config github-oauth.github.com $GITHUB_OAUTH_TOKEN
@@ -45,5 +42,6 @@ php -r "echo ini_get('memory_limit').PHP_EOL;"
 
 echo "Run the integration tests:"
 
-cd $GITHUB_WORKSPACE/dev/tests/integration && ../../../vendor/bin/phpunit -c $GITHUB_WORKSPACE/$INPUT_PHPUNIT_CONFIG_FILE
+cd $GITHUB_WORKSPACE
+cd dev/tests/integration && ../../../vendor/bin/phpunit
 
